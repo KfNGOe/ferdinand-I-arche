@@ -133,3 +133,7 @@ dmypy.json
 *.zip
 /tmp
 /saxon
+/html
+/vendor
+composer*
+local_ingest.sh
