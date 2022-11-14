@@ -133,7 +133,9 @@ dmypy.json
 *.zip
 /tmp
 /saxon
-/html
+/to_ingest
 /vendor
 composer*
 local_ingest.sh
+arche.rdf
+filechecker
