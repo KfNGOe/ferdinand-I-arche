@@ -13,6 +13,9 @@
         <xsl:variable name="TopColId">
             <xsl:value-of select="data(.//acdh:TopCollection/@rdf:about)"/>
         </xsl:variable>
+        <xsl:variable name="websiteDomain" select="'https://ferdinand-korrespondenz.acdh.oeaw.ac.at/'">
+      
+        </xsl:variable>
         <xsl:variable name="constants">
             <xsl:for-each select=".//node()[parent::acdh:RepoObject]">
                 <xsl:copy-of select="."/>
@@ -59,50 +62,38 @@
             <xsl:for-each select=".//node()[parent::acdh:MetaAgents]">
                 <xsl:copy-of select="."/>
             </xsl:for-each>
-            <!-- <xsl:for-each select="collection('../data/editions')//tei:TEI[starts-with(@xml:id, 'ed__1716')]"> -->
-            <!--<xsl:for-each select="collection('../data/editions')//tei:TEI">
-
-
+            <xsl:for-each select="subsequence(collection('../data/editions/band_001/')//tei:TEI, 1, 10)">
+                <xsl:variable name="filenName">
+                    <xsl:value-of select="tokenize(base-uri(.), '/')[last()]"/>
+                </xsl:variable>
                 <xsl:variable name="partOf">
-                    <xsl:value-of select="concat(@xml:base, '/editions')"/>
+                    <xsl:value-of select="concat($TopColId, '/editions')"/>
                 </xsl:variable>
                 <xsl:variable name="id">
-                    <xsl:value-of select="concat($TopColId, '/', @xml:id)"/>
-                </xsl:variable>
-                <xsl:variable name="date">
-                    <xsl:value-of select="replace(replace(@xml:id, '.xml', ''), 'ed__', '')"/>
+                    <xsl:value-of select="concat($TopColId, '/', $filenName)"/>
                 </xsl:variable>
                 <acdh:Resource rdf:about="{$id}">
-                    <!-\-<xsl:if test=".//tei:idno[@type='URI']/text()">
+                    <acdh:isPartOf rdf:resource="{$partOf}"/>
+                    <acdh:hasUrl><xsl:value-of select="replace(concat($websiteDomain, $filenName), '.xml', '.html')"/></acdh:hasUrl>
+                    <!--<xsl:if test=".//tei:idno[@type='URI']/text()">
                         <acdh:hasPid><xsl:value-of select=".//tei:idno[@type='URI']/text()"/></acdh:hasPid>
-                    </xsl:if>-\->
-                    <!-\-<xsl:if test=".//tei:idno[@type='URI']/text()">
+                    </xsl:if>-->
+                    <!--<xsl:if test=".//tei:idno[@type='URI']/text()">
                         <acdh:hasUrl><xsl:value-of select=".//tei:idno[@type='URI']/text()"/></acdh:hasUrl>
-                    </xsl:if>-\->
-                    <acdh:hasTitle xml:lang="de">Wienerisches DIGITARIUM - <xsl:value-of select="$date"/></acdh:hasTitle>
+                    </xsl:if>-->
+                    <acdh:hasTitle xml:lang="de"><xsl:value-of select=".//tei:title[@type='sub']/text()"/></acdh:hasTitle>
                     <acdh:hasAccessRestriction rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public"/>
                     <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"/>
-                    <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
-                    <acdh:isPartOf rdf:resource="{$partOf}"/>
-                    <acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"><xsl:value-of select="$date"/></acdh:hasCoverageStartDate>
-                    <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
-                    <acdh:hasLicensor rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
-                    <acdh:hasContact rdf:resource="https://d-nb.info/gnd/132312794"/>
-                    <acdh:hasOwner rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
-                    <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/oeaw"/>
-                    <acdh:hasCreator rdf:resource="https://d-nb.info/gnd/132312794"/>
-                    <acdh:hasCreator rdf:resource="https://id.acdh.oeaw.ac.at/dkampkaspar"/>
-                    <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/nfischer"/>
-                    <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/nrastinger"/>
-                    <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/132312794"/>
-                    <acdh:hasMetadataCreator rdf:resource="https://d-nb.info/gnd/132312794"/>
-                    <acdh:hasCurator rdf:resource="https://d-nb.info/gnd/1043833846"/>
-                    <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool"/>
-                    <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/clarin-vlo"/>
-                    <acdh:hasCustomCitation>author = {Resch, Claudia and Kampkaspar, Dario}</acdh:hasCustomCitation>
+                    <acdh:hasDescription xml:lang="de"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='2']//text()))"/></acdh:hasDescription>
+                    <acdh:hasDescription xml:lang="en"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='3']//text()))"/></acdh:hasDescription>
+                    <!--<acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>-->
+                    
+                    <!--<acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"><xsl:value-of select="$date"/></acdh:hasCoverageStartDate>-->
+                    
+                    <xsl:copy-of select="$constants"/>
                 </acdh:Resource>
                 
-            </xsl:for-each>-->
+            </xsl:for-each>
         </rdf:RDF>
     </xsl:template>   
 </xsl:stylesheet>
