@@ -13,7 +13,7 @@ with open("handles.json", 'r') as f:
 
 files = glob.glob('data/**/*.xml', recursive=True)
 data = {}
-for x in files[:20]:
+for x in files:
     _, tail = os.path.split(x)
     if tail[0] == 'A' or tail.startswith('register'):
         uri = f"https://ferdinand-korrespondenz.acdh.oeaw.ac.at/{tail}"
@@ -26,7 +26,6 @@ for x in files[:20]:
             print(handle)
     else:
         continue
-print(data)
 
 with open("handles.json", 'w') as f:
     json.dump(data, f)
