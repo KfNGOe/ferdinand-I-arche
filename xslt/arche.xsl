@@ -85,8 +85,12 @@
                         </acdh:hasTitle>
                         <acdh:hasAccessRestriction rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public"/>
                         <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"/>
-                        <acdh:hasDescription xml:lang="de"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='2']//text()))"/></acdh:hasDescription>
-                        <acdh:hasDescription xml:lang="en"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='3']//text()))"/></acdh:hasDescription>
+                        <xsl:if test=".//tei:div[@n='2']">
+                            <acdh:hasDescription xml:lang="de"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='2']//text()))"/></acdh:hasDescription>
+                        </xsl:if>
+                        <xsl:if test=".//tei:div[@n='3']">
+                            <acdh:hasDescription xml:lang="de"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='3']//text()))"/></acdh:hasDescription>
+                        </xsl:if>
                         <!--<acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>-->
                         <!--<acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"><xsl:value-of select="$date"/></acdh:hasCoverageStartDate>-->
                         <xsl:copy-of select="$constants"/>
