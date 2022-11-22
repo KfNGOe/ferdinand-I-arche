@@ -139,3 +139,5 @@ composer*
 local_ingest.sh
 arche.rdf
 filechecker
+/data/register
+secret.sh

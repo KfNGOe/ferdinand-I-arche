@@ -62,7 +62,8 @@
             <xsl:for-each select=".//node()[parent::acdh:MetaAgents]">
                 <xsl:copy-of select="."/>
             </xsl:for-each>
-            <xsl:for-each select="subsequence(collection('../data/editions/band_001/')//tei:TEI, 1, 10)">
+            <!-- <xsl:for-each select="subsequence(collection('../data/editions/band_001/')//tei:TEI, 1, 10)"> -->
+            <xsl:for-each select="collection('../data/editions/band_001/')//tei:TEI">
                 <xsl:variable name="filenName">
                     <xsl:value-of select="tokenize(base-uri(.), '/')[last()]"/>
                 </xsl:variable>
