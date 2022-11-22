@@ -73,26 +73,63 @@
                 <xsl:variable name="id">
                     <xsl:value-of select="concat($TopColId, '/', $filenName)"/>
                 </xsl:variable>
-                <acdh:Resource rdf:about="{$id}">
-                    <acdh:isPartOf rdf:resource="{$partOf}"/>
-                    <acdh:hasUrl><xsl:value-of select="replace(concat($websiteDomain, $filenName), '.xml', '.html')"/></acdh:hasUrl>
-                    <!--<xsl:if test=".//tei:idno[@type='URI']/text()">
+                <xsl:if test="starts-with($filenName, 'A')">
+                    <acdh:Resource rdf:about="{$id}">
+                        <acdh:isPartOf rdf:resource="{$partOf}"/>
+                        <acdh:hasUrl><xsl:value-of select="replace(concat($websiteDomain, $filenName), '.xml', '.html')"/></acdh:hasUrl>
+                        <!--<xsl:if test=".//tei:idno[@type='URI']/text()">
                         <acdh:hasPid><xsl:value-of select=".//tei:idno[@type='URI']/text()"/></acdh:hasPid>
                     </xsl:if>-->
-                    <!--<xsl:if test=".//tei:idno[@type='URI']/text()">
+                        <!--<xsl:if test=".//tei:idno[@type='URI']/text()">
                         <acdh:hasUrl><xsl:value-of select=".//tei:idno[@type='URI']/text()"/></acdh:hasUrl>
                     </xsl:if>-->
-                    <acdh:hasTitle xml:lang="de"><xsl:value-of select=".//tei:title[@type='sub']/text()"/></acdh:hasTitle>
-                    <acdh:hasAccessRestriction rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public"/>
-                    <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"/>
-                    <acdh:hasDescription xml:lang="de"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='2']//text()))"/></acdh:hasDescription>
-                    <acdh:hasDescription xml:lang="en"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='3']//text()))"/></acdh:hasDescription>
-                    <!--<acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>-->
-                    
-                    <!--<acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"><xsl:value-of select="$date"/></acdh:hasCoverageStartDate>-->
-                    
-                    <xsl:copy-of select="$constants"/>
-                </acdh:Resource>
+                        <acdh:hasTitle xml:lang="de">
+                            <xsl:choose>
+                                <xsl:when test=".//tei:title[@type='sub']/text()"><xsl:value-of select=".//tei:title[@type='sub']/text()"/></xsl:when>
+                                <xsl:otherwise>Kein Titel gefunden</xsl:otherwise>
+                            </xsl:choose>
+                            
+                        </acdh:hasTitle>
+                        <acdh:hasAccessRestriction rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public"/>
+                        <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"/>
+                        <acdh:hasDescription xml:lang="de"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='2']//text()))"/></acdh:hasDescription>
+                        <acdh:hasDescription xml:lang="en"><xsl:value-of select="normalize-space(string-join(.//tei:div[@n='3']//text()))"/></acdh:hasDescription>
+                        <!--<acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>-->
+                        
+                        <!--<acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date"><xsl:value-of select="$date"/></acdh:hasCoverageStartDate>-->
+                        
+                        <xsl:copy-of select="$constants"/>
+                    </acdh:Resource> 
+                </xsl:if>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../data/register/')//tei:TEI">
+                <xsl:variable name="filenName">
+                    <xsl:value-of select="tokenize(base-uri(.), '/')[last()]"/>
+                </xsl:variable>
+                <xsl:variable name="partOf">
+                    <xsl:value-of select="concat($TopColId, '/indices')"/>
+                </xsl:variable>
+                <xsl:variable name="id">
+                    <xsl:value-of select="concat($TopColId, '/', $filenName)"/>
+                </xsl:variable>
+                <xsl:if test="starts-with($filenName, 'register')">
+                    <acdh:Resource rdf:about="{$id}">
+                        <acdh:isPartOf rdf:resource="{$partOf}"/>
+                        <acdh:hasUrl><xsl:value-of select="replace(concat($websiteDomain, $filenName), '.xml', '.html')"/></acdh:hasUrl>
+                        <!--<xsl:if test=".//tei:idno[@type='URI']/text()">
+                        <acdh:hasPid><xsl:value-of select=".//tei:idno[@type='URI']/text()"/></acdh:hasPid>
+                    </xsl:if>-->
+                        <!--<xsl:if test=".//tei:idno[@type='URI']/text()">
+                        <acdh:hasUrl><xsl:value-of select=".//tei:idno[@type='URI']/text()"/></acdh:hasUrl>
+                    </xsl:if>-->
+                        <acdh:hasTitle xml:lang="de"><xsl:value-of select=".//tei:title[1]/text()"/></acdh:hasTitle>
+                        <acdh:hasAccessRestriction rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public"/>
+                        <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"/>
+                        <!--<acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>-->                        
+                        <xsl:copy-of select="$constants"/>
+                    </acdh:Resource> 
+                </xsl:if>
+                
                 
             </xsl:for-each>
         </rdf:RDF>

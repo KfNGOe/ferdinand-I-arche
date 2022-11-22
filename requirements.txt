@@ -1,2 +1,2 @@
 acdh-handle-pyutils
-pandas
+rdflib
