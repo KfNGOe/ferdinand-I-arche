@@ -3,7 +3,6 @@
 rm -rf data/editions
 rm -rf data/register
 rm -rf ./ferdinand-I-data-main
-rm main.zip
 wget https://github.com/KfNGOe/ferdinand-I-data/archive/refs/heads/main.zip
 unzip main
 rm main.zip
