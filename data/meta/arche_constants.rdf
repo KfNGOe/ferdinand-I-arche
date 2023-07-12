@@ -5,10 +5,12 @@
         <acdh:hasPid>https://hdl.handle.net/21.11115/0000-000F-7494-7</acdh:hasPid>
         <acdh:hasTitle xml:lang="de">Die Familienkorrespondenz Ferdinands I.</acdh:hasTitle>
         <acdh:hasUrl>https://ferdinand-korrespondenz.acdh.oeaw.ac.at</acdh:hasUrl>
+        <!-- To add: The description of the TopCollection should also outline the overall plan to digitize all published print volumes (from to). -->
         <acdh:hasDescription xml:lang="de">Familienkorrespondenz Ferdinands I., kodiert in XML/TEI, ergänzt um ein Personen-, Sach- sowie Ortsregister und um Listen des bisher in gedruckter Form edierten Materials (1527-1536) wie auch der erhobenen Briefe 1537-1564.</acdh:hasDescription>
         <acdh:hasContact rdf:resource="https://d-nb.info/gnd/121046842"/><!-- RH: Christopher Laferl -->
         <acdh:hasMetadataCreator rdf:resource="https://d-nb.info/gnd/13295639X"/><!-- RH: Richard Hörmann -->
         <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/121046842"/><!-- Aichner: Laferl -->
+        <!-- Add all (!) creators/contributors - will be expanded with each volume. -->
         <acdh:hasCompleteness xml:lang="de">Die Sammlung wird erweitert.</acdh:hasCompleteness>
         <acdh:hasCompleteness xml:lang="en">The collection will be extended.</acdh:hasCompleteness>
         <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
@@ -26,13 +28,15 @@
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/spa"/>
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/lat"/>
         <acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1514-01-01</acdh:hasCoverageStartDate>
-        <acdh:hasCoverageEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1526-01-01</acdh:hasCoverageEndDate>
+        <acdh:hasCoverageEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1534-01-01</acdh:hasCoverageEndDate>
     </acdh:TopCollection>
         <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/editions">
             <acdh:hasPid>https://hdl.handle.net/21.11115/0000-000F-7495-6</acdh:hasPid>
             <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz"/>
             <acdh:hasTitle xml:lang="de">Editionen</acdh:hasTitle>
+            <!-- The description should name all included print volumes in an overview manner. "XML/TEI documents of ..." -->
             <acdh:hasDescription xml:lang="de">XML/TEI Dokumente</acdh:hasDescription>
+            <!-- Add all (!) creators/contributors - will be expanded with each volume. -->
             <acdh:hasCompleteness xml:lang="de">Die Sammlung wird erweitert.</acdh:hasCompleteness>
             <acdh:hasCompleteness xml:lang="en">The collection will be extended.</acdh:hasCompleteness>
             <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
@@ -43,17 +47,19 @@
             <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/place-europe"/>
             <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/place-ottoman-empire"/>
             <acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1514-01-01</acdh:hasCoverageStartDate>
-            <acdh:hasCoverageEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1526-01-01</acdh:hasCoverageEndDate>
+            <acdh:hasCoverageEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1534-01-01</acdh:hasCoverageEndDate>
         <!-- <acdh:hasCreatedStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-01</acdh:hasCreatedStartDate>
          <acdh:hasCreatedEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-08-31</acdh:hasCreatedEndDate> -->
         </acdh:Collection>
-        <!-- Add SubCollections corresponding to the printed volumes? -->
-        <!-- Will the indices be versioned after more volumes are added? -->
+        <!-- Add SubCollection(s) corresponding to each printed volume; 1. SubCollection Bauer volume including detailed description.  -->
+        <!-- Indices: They can be versioned after more volumes are added within this SubCollection OR add 1 SubCollection for indices of 1 volume. The decision is up to Laferl. -->
         <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/indices">
             <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz"/>
             <acdh:hasPid>https://hdl.handle.net/21.11115/0000-000F-7496-5</acdh:hasPid>
             <acdh:hasTitle xml:lang="de">Register</acdh:hasTitle>
             <acdh:hasDescription xml:lang="de">XML/TEI kodierte Orts-, Sach- und Personenregister</acdh:hasDescription>
+            <!-- Add only involved creators/contributors - will be expanded with each volume. -->
+            <!-- Add all languages contained. -->
             <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
             <!-- <acdh:hasCreatedStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-01</acdh:hasCreatedStartDate>
          <acdh:hasCreatedEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-08-31</acdh:hasCreatedEndDate> -->
@@ -77,8 +83,8 @@
         <acdh:Person rdf:about="https://d-nb.info/gnd/118507389">
             <acdh:hasTitle xml:lang="und">Wilhelm Bauer</acdh:hasTitle>
         </acdh:Person>
-        <!-- Contributors to be added: Laura Abel; Tanner Kauffmann Gore; Christina Hug; Johannes Hofer-Bindeus; Doris Pitzer; Birgit Raitmayer; Michael Doyle Ryan -->
-        <!-- Add publication datasets for printed volume(s) -->
+        <!-- Contributors to be added: Laura Abel; Tanner Kauffmann Gore; Christina Hug; Johannes Hofer-Bindeus; Doris Pitzer; Birgit Raitmayer; Michael Doyle Ryan - will be expanded with each volume.-->
+        <!-- Add publication dataset(s) for each printed volume(s): 1. Bauer 1912 -->
     </acdh:MetaAgents>
    
     
@@ -94,6 +100,7 @@
         <acdh:hasContributor rdf:resource="https://d-nb.info/gnd/13295639X"/><!-- RH: Richard Hörmann -->
         <acdh:hasContributor rdf:resource="https://d-nb.info/gnd/1043833846"/><!-- RH: Peter Andorfer -->        
         <acdh:hasContributor rdf:resource="https://d-nb.info/gnd/1248646223"/><!-- RH: Joseph Wang -->
+        <!-- Add all (!) contributors - will be expanded with each volume. -->
         <acdh:hasMetadataCreator rdf:resource="https://d-nb.info/gnd/13295639X"/><!-- RH: Richard Hörmann -->
         <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/clarin-vlo"/><!-- RH: ?xxxx -->
         <acdh:hasActor rdf:resource="http://d-nb.info/gnd/118532502"/>
