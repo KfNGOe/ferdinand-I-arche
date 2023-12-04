@@ -1,0 +1,41 @@
+@prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
+
+
+<https://d-nb.info/gnd/1248646223> a acdh:Person ;
+    acdh:hasTitle "Josef Wang"@und .
+
+<https://d-nb.info/gnd/13295639X> a acdh:Person ;
+    acdh:hasTitle "Richard Hörmann"@und .
+
+<https://d-nb.info/gnd/121046842> a acdh:Person ;
+    acdh:hasTitle "Christopher F. Laferl"@und .
+
+<https://d-nb.info/gnd/118507389> a acdh:Person ;
+    acdh:hasTitle "Wilhelm Bauer"@und .
+
+<https://d-nb.info/gnd/118532502> a acdh:Person ;
+    acdh:hasTitle "Ferdinand I., Heiliges Römisches Reich, Kaiser"@und .
+
+
+<https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> a acdh:TopCollection ;
+    acdh:hasDescription "Die Familienkorrespondenz von Ferdinand I. kodiert in XML/TEI, ergänzt um ein Personen-, Orts- und Sachregister."@de ;
+    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
+    acdh:hasPid "https://hdl.handle.net/21.11115/0000-000F-7494-7" ;
+    acdh:hasRelatedDiscipline <https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601> ;
+    acdh:hasSubject "Edition"@de ;
+    acdh:hasTitle "Die Familienkorrespondenz von Ferdinand I."@de ;
+    acdh:hasUrl "https://ferdinand-korrespondenz.acdh.oeaw.ac.at" .
+
+<https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/indices> a acdh:Collection ;
+    acdh:hasDescription "XML/TEI kodiertes Orts-, Sach- und Personenregister"@de ;
+    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
+    acdh:hasPid "https://hdl.handle.net/21.11115/0000-000F-7496-5" ;
+    acdh:hasTitle "Register"@de ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> .
+
+<https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/band-001> a acdh:Collection ;
+    acdh:hasDescription "Beschreibung zu Band 1"@de ;
+    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
+    acdh:hasPid "https://hdl.handle.net/21.11115/0000-000F-7495-6" ;
+    acdh:hasTitle "Band 1"@de ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> .
