@@ -9,8 +9,11 @@ from rdflib import Namespace, URIRef, RDF, Graph, Literal, XSD
 
 TOP_COL_URI = URIRef("https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz")
 BAND_I_URI = URIRef(f"{TOP_COL_URI}/band-001")
-g = Graph().parse("./arche_seed_files/arche_constants.ttl")
-g_repo_objects = Graph().parse("./arche_seed_files/repo_objects_constants.ttl")
+
+g = Graph().parse("arche_seed_files/arche_constants.ttl")
+g_repo_objects = Graph().parse("arche_seed_files/repo_objects_constants.ttl")
+g_resource_objects = Graph().parse("arche_seed_files/resource_constants.ttl")
+
 ACDH = Namespace("https://vocabs.acdh.oeaw.ac.at/schema#")
 COLS = [ACDH["TopCollection"], ACDH["Collection"]]
 COL_URIS = set()
@@ -81,6 +84,8 @@ for x in tqdm(files):
             (uri, ACDH["hasCoverageStartDate"], Literal(date_when, datatype=XSD.date))
         )
     for p, o in g_repo_objects.predicate_objects():
+        g.add((uri, p, o))
+    for p, o in g_resource_objects.predicate_objects():
         g.add((uri, p, o))
     doc.tree_to_file(os.path.join(ingest_dir, file_name))
 

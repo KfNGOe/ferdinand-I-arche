@@ -1,7 +1,6 @@
 @prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
 
-<https://foo/bar> acdh:hasAccessRestriction <https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public> ;
-    acdh:hasActor <http://d-nb.info/gnd/118532502> ;
+<https://foo/bar> acdh:hasActor <http://d-nb.info/gnd/118532502> ;
     acdh:hasContact <https://d-nb.info/gnd/121046842> ;
     acdh:hasContributor <https://d-nb.info/gnd/1043833846>,
         <https://d-nb.info/gnd/1248646223>,
