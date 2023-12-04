@@ -1,2 +1,3 @@
 acdh-handle-pyutils
+acdh-tei-pyutils
 rdflib
