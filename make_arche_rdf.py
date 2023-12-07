@@ -33,22 +33,23 @@ for x in COLS:
 
 print("enriching Collections with shared properties")
 for x in COL_URIS:
-    print(x)
     for p, o in g_repo_objects.predicate_objects():
         g.add((x, p, o))
 
 
 files = sorted(glob.glob("./data/editions/band_001/A*.xml"))
-print(f"generating metadata for {len(files) TEIs}")
+print(f"generating metadata for {len(files)} TEIs")
 for x in tqdm(files):
     doc = TeiReader(x)
     _, file_name = os.path.split(x)
     uri = URIRef(f"{TOP_COL_URI}/{file_name}")
+    g.add((uri, RDF.type, ACDH["Resource"]))
     g.add(
-        (uri, RDF.type, ACDH["Resource"])
-    )
-    g.add(
-        (uri, ACDH["hasCategory"], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"))
+        (
+            uri,
+            ACDH["hasCategory"],
+            URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"),
+        )
     )
     try:
         has_title = doc.any_xpath(".//tei:titleStmt/tei:title[@type='sub'][1]/text()")[
@@ -100,7 +101,39 @@ for x in tqdm(files):
         )
     for p, o in g_repo_objects.predicate_objects():
         g.add((uri, p, o))
-    
-    doc.tree_to_file(os.path.join(ingest_dir, file_name))
-g.serialize("arche.ttl")
 
+    doc.tree_to_file(os.path.join(ingest_dir, file_name))
+
+
+print("add spatial coverage")
+register_file = os.path.join("data", "register", "register_place.xml")
+geonames_pattern = "https://sws.geonames.org/{}/"
+doc = TeiReader(register_file)
+nsmap = doc.nsmap
+
+ids = set()
+for x in doc.any_xpath(
+    ".//tei:item[./tei:note[@type='place'] and ./tei:note[@type='geoname']]"
+):
+    geonames = x.xpath("./tei:note[@type='geoname']", namespaces=nsmap)[0].text
+    if geonames is not None:
+        geonames_uri = geonames_pattern.format(geonames)
+        try:
+            name = x.xpath(".//tei:placeName", namespaces=nsmap)[0].text
+        except Exception as e:
+            print(x)
+            continue
+        if (
+            geonames in ids
+        ):  # this is needed to avoid multiple titles for same geonames id
+            continue
+        else:
+            ids.add(geonames)
+            subj = URIRef(geonames_uri)
+            g.add((subj, RDF.type, ACDH["Place"]))
+            g.add((subj, ACDH["hasTitle"], Literal(name, lang="und")))
+            for y in x.xpath("./tei:note[@type]/tei:p[@source]", namespaces=nsmap):
+                doc_id = y.attrib["source"]
+                doc_subj = URIRef(f"{TOP_COL_URI}/{doc_id}")
+                g.add((doc_subj, ACDH["hasSpatialCoverage"], subj))
+g.serialize("arche.ttl")
