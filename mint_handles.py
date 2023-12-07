@@ -15,7 +15,7 @@ cl = HandleClient(HANDLE_USERNAME, HANDLE_PASSWORD)
 with open(HANDLE_CACHE, "r") as f:
     loaded_data = json.load(f)
 
-files = glob.glob("to_ingest/A*.xml", recursive=True)
+files = glob.glob("to_ingest/*.xml", recursive=True)
 
 data = {}
 for x in files:
@@ -38,9 +38,8 @@ with open(HANDLE_CACHE, "w") as f:
 with open(HANDLE_CACHE, "r") as file:
     data = json.load(file)
 
-g = Graph()
+g = Graph().parse("arche.ttl")
 for key, value in data.items():
     sub = URIRef(key)
     g.add((sub, arche_ns["hasPid"], Literal(value)))
-g = g + Graph().parse("arche.ttl")
 g.serialize("arche.ttl")

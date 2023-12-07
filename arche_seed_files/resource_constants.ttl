@@ -1,3 +1,0 @@
-@prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
-
-<https://foo/bar> acdh:hasAccessRestriction <https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public> .

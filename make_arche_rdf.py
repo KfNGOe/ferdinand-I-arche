@@ -12,28 +12,44 @@ BAND_I_URI = URIRef(f"{TOP_COL_URI}/band-001")
 
 g = Graph().parse("arche_seed_files/arche_constants.ttl")
 g_repo_objects = Graph().parse("arche_seed_files/repo_objects_constants.ttl")
-g_resource_objects = Graph().parse("arche_seed_files/resource_constants.ttl")
+
 
 ACDH = Namespace("https://vocabs.acdh.oeaw.ac.at/schema#")
-COLS = [ACDH["TopCollection"], ACDH["Collection"]]
+COLS = [ACDH["TopCollection"], ACDH["Collection"], ACDH["Resource"]]
 COL_URIS = set()
 ingest_dir = "to_ingest"
 
 shutil.rmtree(ingest_dir, ignore_errors=True)
+print("copying register files")
+src_dir = os.path.join("data", "register")
+
+files = os.listdir(src_dir)
+shutil.copytree(src_dir, ingest_dir)
 os.makedirs(ingest_dir, exist_ok=True)
 for x in COLS:
     for s in g.subjects(None, x):
         COL_URIS.add(s)
+
+
 print("enriching Collections with shared properties")
 for x in COL_URIS:
+    print(x)
     for p, o in g_repo_objects.predicate_objects():
         g.add((x, p, o))
-files = sorted(glob.glob("./data/editions/band_001/A*.xml"))
 
+
+files = sorted(glob.glob("./data/editions/band_001/A*.xml"))
+print(f"generating metadata for {len(files) TEIs}")
 for x in tqdm(files):
     doc = TeiReader(x)
     _, file_name = os.path.split(x)
     uri = URIRef(f"{TOP_COL_URI}/{file_name}")
+    g.add(
+        (uri, RDF.type, ACDH["Resource"])
+    )
+    g.add(
+        (uri, ACDH["hasCategory"], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"))
+    )
     try:
         has_title = doc.any_xpath(".//tei:titleStmt/tei:title[@type='sub'][1]/text()")[
             0
@@ -56,7 +72,6 @@ for x in tqdm(files):
     if description is not None:
         g.add((uri, ACDH["hasDescription"], Literal(description_text, lang="en")))
 
-    g.add((uri, RDF.type, ACDH["Resource"]))
     g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="de")))
     g.add((uri, ACDH["isPartOf"], BAND_I_URI))
     g.add(
@@ -85,8 +100,7 @@ for x in tqdm(files):
         )
     for p, o in g_repo_objects.predicate_objects():
         g.add((uri, p, o))
-    for p, o in g_resource_objects.predicate_objects():
-        g.add((uri, p, o))
+    
     doc.tree_to_file(os.path.join(ingest_dir, file_name))
-
 g.serialize("arche.ttl")
+
