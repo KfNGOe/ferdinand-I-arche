@@ -45,7 +45,7 @@
     acdh:hasFirstName "Birgit"@und ;
     acdh:hasLastName "Raitmayr"@und .
 
-<https://id.acdh.oeaw.ac.at/mdrayan> a acdh:Person ;
+<https://id.acdh.oeaw.ac.at/mdryan> a acdh:Person ;
     acdh:hasTitle "Michael Doyle Ryan"@und ;
     acdh:hasFirstName "Michael Doyle"@und ;
     acdh:hasLastName "Ryan"@und .
