@@ -1,4 +1,6 @@
 @prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
+@prefix acdhi: <https://id.acdh.oeaw.ac.at/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
 <https://d-nb.info/gnd/1248646223> a acdh:Person ;
@@ -106,7 +108,7 @@
     acdh:hasCity "Vienna"@en ;
     acdh:hasIssuedDate "1912" ;
 ###No idea if multiple languages in hasCustomCitation are indicated correctly!
-    acdh:hasCustomCitation "@book{wbauer1912,
+    acdh:hasCustomCitation """@book{wbauer1912,
 		title = {Die Korrespondenz Ferdinands I. / 1: Familienkorrespondenz bis 1526 / bearb. von Wilhelm Bauer},
 		editor = {Bauer, Wilhelm},
 		series = {Veröffentlichung der Kommission für Neuere Geschichte Österreichs. Korrespondenzen Österreichischer Herrscher},
@@ -115,7 +117,7 @@
 		publisher = {Holzhausen},
 		location = {Wien},
 		language = {German, French, Spanish, Latin},
-		}" ;
+		}""" ;
     acdh:isSourceOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/band-001> ; 
     acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> .
 
