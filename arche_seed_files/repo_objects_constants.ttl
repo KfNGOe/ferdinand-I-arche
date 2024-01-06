@@ -11,7 +11,7 @@
         <https://id.acdh.oeaw.ac.at/chug>,
         <https://id.acdh.oeaw.ac.at/jhofer-bindeus>,
         <https://id.acdh.oeaw.ac.at/dpitzer>,
-        <https://id.acdh.oeaw.ac.at/braitmayr>,
+        # <https://id.acdh.oeaw.ac.at/braitmayr>,
         <https://id.acdh.oeaw.ac.at/mdryan> ;
     acdh:hasCreator <https://d-nb.info/gnd/121046842> ;
     acdh:hasDepositor <https://d-nb.info/gnd/121046842> ;

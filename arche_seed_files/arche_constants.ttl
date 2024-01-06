@@ -154,7 +154,7 @@ Die Personen-, Sach- sowie Ortsregister werden mit jedem hinzukommendem Band ent
     acdh:hasSpatialCoverage <https://id.acdh.oeaw.ac.at/place-europe> ;
     acdh:hasSpatialCoverage <https://id.acdh.oeaw.ac.at/place-ottoman-empire> ;
     acdh:hasCoverageStartDate "1514-01-01"^^xsd:date ;
-    acdh:hasCoverageEndDate "1564-31-12"^^xsd:date ;
+    acdh:hasCoverageEndDate "1564-12-31"^^xsd:date ;
     acdh:hasTitle "Die Familienkorrespondenz von Ferdinand I."@de ;
     acdh:hasLifeCycleStatus <https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active> ;
     acdh:hasCompleteness "Diese Sammlung wird sukzessive erweitert."@de ;
