@@ -54,7 +54,7 @@ for x in tqdm(files):
             uri,
             ACDH["hasSchema"],
             Literal(
-                "https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/basisformat_all_ferdinand.rng"
+                "https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/basisformat_all_ferdinand.xml"
             ),
         )
     )
@@ -147,6 +147,6 @@ g.parse("arche_seed_files/other_things.ttl")
 g.serialize("arche.ttl")
 
 shutil.move(
-    "data/basisformat_all_ferdinand.rng",
-    os.path.join(ingest_dir, "basisformat_all_ferdinand.rng"),
+    "data/basisformat_all_ferdinand.xml",
+    os.path.join(ingest_dir, "basisformat_all_ferdinand.xml"),
 )
