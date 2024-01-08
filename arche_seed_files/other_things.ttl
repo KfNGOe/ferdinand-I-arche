@@ -1,0 +1,16 @@
+@prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
+
+<https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/basisformat_all_ferdinand.rng> a acdh:Resource ;
+    acdh:hasTitle """Schema der TEI/XML Dateien der Familienkorrespondenz von Ferdinand I."""@de ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> ;
+    acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/model> ;
+    acdh:hasCurator <http://d-nb.info/gnd/1043833846> ;
+    acdh:hasContact <https://d-nb.info/gnd/121046842> ;
+    acdh:hasContributor <https://id.acdh.oeaw.ac.at/pandorfer> ;
+    acdh:hasCreator <https://d-nb.info/gnd/13295639X> ;
+    acdh:hasDepositor <https://d-nb.info/gnd/121046842> ;
+    acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0> ;
+    acdh:hasLicensor <https://d-nb.info/gnd/13295639X> ;
+    acdh:hasMetadataCreator <https://d-nb.info/gnd/13295639X> ;
+    acdh:hasOwner <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> ;
+    acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> .

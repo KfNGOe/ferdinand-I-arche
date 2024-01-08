@@ -13,7 +13,6 @@ BAND_I_URI = URIRef(f"{TOP_COL_URI}/band-001")
 g = Graph().parse("arche_seed_files/arche_constants.ttl")
 g_repo_objects = Graph().parse("arche_seed_files/repo_objects_constants.ttl")
 
-
 ACDH = Namespace("https://vocabs.acdh.oeaw.ac.at/schema#")
 COLS = [ACDH["TopCollection"], ACDH["Collection"], ACDH["Resource"]]
 COL_URIS = set()
@@ -36,7 +35,6 @@ for x in COL_URIS:
     for p, o in g_repo_objects.predicate_objects():
         g.add((x, p, o))
 
-
 files = sorted(glob.glob("./data/editions/band_001/A*.xml"))
 print(f"generating metadata for {len(files)} TEIs")
 for x in tqdm(files):
@@ -49,6 +47,15 @@ for x in tqdm(files):
             uri,
             ACDH["hasCategory"],
             URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"),
+        )
+    )
+    g.add(
+        (
+            uri,
+            ACDH["hasSchema"],
+            Literal(
+                "https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/basisformat_all_ferdinand.rng"
+            ),
         )
     )
     try:
@@ -121,7 +128,7 @@ for x in doc.any_xpath(
         try:
             name = x.xpath(".//tei:placeName", namespaces=nsmap)[0].text
         except Exception as e:
-            print(x)
+            print(x, e)
             continue
         if (
             geonames in ids
@@ -136,4 +143,10 @@ for x in doc.any_xpath(
                 doc_id = y.attrib["source"]
                 doc_subj = URIRef(f"{TOP_COL_URI}/{doc_id}")
                 g.add((doc_subj, ACDH["hasSpatialCoverage"], subj))
+g.parse("arche_seed_files/other_things.ttl")
 g.serialize("arche.ttl")
+
+shutil.move(
+    "data/basisformat_all_ferdinand.rng",
+    os.path.join(ingest_dir, "basisformat_all_ferdinand.rng"),
+)
