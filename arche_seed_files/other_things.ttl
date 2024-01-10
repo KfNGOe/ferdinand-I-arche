@@ -1,6 +1,7 @@
 @prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
 
 <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/basisformat_all_ferdinand.xml> a acdh:Resource ;
+    acdh:hasPid "https://hdl.handle.net/21.11115/0000-0011-4A88-1" ;
     acdh:hasTitle """Schema der TEI/XML Dateien der Familienkorrespondenz von Ferdinand I."""@de ;
     acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> ;
     acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/model> ;
