@@ -35,21 +35,21 @@ jobs:
       run: |
         composer require "acdh-oeaw/repo-file-checker:^2"
         mkdir -p filechecker/tmp filechecker/reports
-    # - name: cache AV database
-    #   id: avdb
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: ~/.cvdupdate
-    #     key: constant
-    # - name: refresh AV database
-    #   run: |
-    #     python3 -m pip install --user cvdupdate && cvd update
-    # - name: run repo-file-checker
-    #   run: |
-    #     echo 'STEP=Run repo-file-checker' >> $GITHUB_ENV
-    #     docker run --rm -v `pwd`/to_ingest:/data -v `pwd`/filechecker/reports:/reports -v ~/.cvdupdate/database/:/var/lib/clamav acdhch/arche-filechecker 0
-    #     vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" $REDMINE_ID 'Virus scan' --done 100 --status "Resolved"
-    #     vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" $REDMINE_ID 'Run repo-file-checker' --done "100" --status "Resolved"
+    - name: cache AV database
+      id: avdb
+      uses: actions/cache@v3
+      with:
+        path: ~/.cvdupdate
+        key: constant
+    - name: refresh AV database
+      run: |
+        python3 -m pip install --user cvdupdate && cvd update
+    - name: run repo-file-checker
+      run: |
+        echo 'STEP=Run repo-file-checker' >> $GITHUB_ENV
+        docker run --rm -v `pwd`/to_ingest:/data -v `pwd`/filechecker/reports:/reports -v ~/.cvdupdate/database/:/var/lib/clamav acdhch/arche-filechecker 0
+        vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" $REDMINE_ID 'Virus scan' --done 100 --status "Resolved"
+        vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" $REDMINE_ID 'Run repo-file-checker' --done "100" --status "Resolved"
     - name: ingest metadata
       run: |
         echo 'STEP=Upload AIP to Curation Instance (Minerva)' >> $GITHUB_ENV
@@ -59,12 +59,12 @@ jobs:
       if: ${{ failure() }}
       run: |
         vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" --statusCode 1 $REDMINE_ID "$STEP"
-    # - name: ingest binaries
-    #   run: |
-    #     echo 'STEP=Upload AIP to Curation Instance (Minerva)' >> $GITHUB_ENV
-    #     vendor/bin/arche-import-binary to_ingest https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz https://arche-dev.acdh-dev.oeaw.ac.at/api ${{secrets.ARCHE_LOGIN}} ${{secrets.ARCHE_PASSWORD}} --skip not_exist
-    #     vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" $REDMINE_ID 'Upload AIP to Curation Instance (Minerva)' --message "ingested Binaries" --done 100 --status "Resolved"
-    # - name: on failure
-    #   if: ${{ failure() }}
-    #   run: |
-    #     vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" --statusCode 1 $REDMINE_ID "$STEP"
+    - name: ingest binaries
+      run: |
+        echo 'STEP=Upload AIP to Curation Instance (Minerva)' >> $GITHUB_ENV
+        vendor/bin/arche-import-binary to_ingest https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz https://arche-dev.acdh-dev.oeaw.ac.at/api ${{secrets.ARCHE_LOGIN}} ${{secrets.ARCHE_PASSWORD}} --skip not_exist
+        vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" $REDMINE_ID 'Upload AIP to Curation Instance (Minerva)' --message "ingested Binaries" --done 100 --status "Resolved"
+    - name: on failure
+      if: ${{ failure() }}
+      run: |
+        vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" --statusCode 1 $REDMINE_ID "$STEP"
