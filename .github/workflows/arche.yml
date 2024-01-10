@@ -44,6 +44,7 @@ jobs:
     - name: refresh AV database
       run: |
         python3 -m pip install --user cvdupdate && cvd update
+    - uses: mxschmitt/action-tmate@v3
     - name: run repo-file-checker
       run: |
         echo 'STEP=Run repo-file-checker' >> $GITHUB_ENV
