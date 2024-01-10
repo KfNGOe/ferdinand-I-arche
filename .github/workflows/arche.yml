@@ -47,7 +47,7 @@ jobs:
     - name: run repo-file-checker
       run: |
         echo 'STEP=Run repo-file-checker' >> $GITHUB_ENV
-        docker run --rm -v `pwd`/to_ingest:/data -v `pwd`/filechecker/reports:/reports -v ~/.cvdupdate/database/:/var/lib/clamav acdhch/arche-filechecker
+        docker run --rm -v `pwd`/to_ingest:/data -v `pwd`/filechecker/reports:/reports -v ~/.cvdupdate/database/:/var/lib/clamav acdhch/arche-filechecker --csv --overwrite
         vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" $REDMINE_ID 'Virus scan' --done 100 --status "Resolved"
         vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" $REDMINE_ID 'Run repo-file-checker' --done "100" --status "Resolved"
     - name: ingest metadata
@@ -64,3 +64,4 @@ jobs:
       if: ${{ failure() }}
       run: |
         vendor/bin/arche-update-redmine --token ${{ secrets.REDMINE_TOKEN }} --append "$RUN_URL" --statusCode 1 $REDMINE_ID "$STEP"
+        if [ -d filechecker/reports ] ; then cat filechecker/reports/*csv ; fi
