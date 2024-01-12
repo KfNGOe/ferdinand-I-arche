@@ -118,8 +118,7 @@
 		location = {Wien},
 		language = {German, French, Spanish, Latin},
 		}""" ;
-    acdh:isSourceOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/band-001> ; 
-    acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> .
+    acdh:isSourceOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/band-001> .
 
 <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> a acdh:TopCollection ;
     acdh:hasDescription """Familienkorrespondenz Ferdinands I., kodiert in XML/TEI, ergänzt um ein Personen-, Sach- sowie Ortsregister und um Listen des bisher in gedruckter Form edierten Materials (1527-1536) wie auch der erhobenen Briefe 1537-1564. 
