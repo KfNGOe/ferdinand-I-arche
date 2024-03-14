@@ -5,7 +5,7 @@
 
 <https://d-nb.info/gnd/1248646223> a acdh:Person ;
     acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/jwang> ;
-    acdh:hasTitle "Josef Wang"@und .
+    acdh:hasTitle "Josef Wang-Kathrein"@und .
 
 <https://d-nb.info/gnd/13295639X> a acdh:Person ;
     acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/rhoermann> ;
