@@ -14,4 +14,4 @@
     acdh:hasLicensor <https://d-nb.info/gnd/13295639X> ;
     acdh:hasMetadataCreator <https://d-nb.info/gnd/13295639X> ;
     acdh:hasOwner <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> ;
-    acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> .
+    acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/uniinnsbruck> .
