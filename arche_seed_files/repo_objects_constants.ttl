@@ -20,4 +20,4 @@
     acdh:hasMetadataCreator <https://d-nb.info/gnd/13295639X> ;
     acdh:hasOaiSet <https://vocabs.acdh.oeaw.ac.at/archeoaisets/clarin-vlo> ;
     acdh:hasOwner <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> ;
-    acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> .
+    acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/uniinnsbruck> .
