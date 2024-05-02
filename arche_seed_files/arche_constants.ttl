@@ -5,17 +5,20 @@
 
 <https://d-nb.info/gnd/1248646223> a acdh:Person ;
     acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/jwang> ;
-    acdh:hasTitle "Josef Wang-Kathrein"@und .
+    acdh:hasTitle "Joseph Wang-Kathrein"@und ;
+    acdh:hasPersonalTitle "Mag. DDr." .
 
 <https://d-nb.info/gnd/13295639X> a acdh:Person ;
     acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/rhoermann> ;
-    acdh:hasTitle "Richard Hörmann"@und .
+    acdh:hasTitle "Richard Hörmann"@und ;
+    acdh:hasPersonalTitle "Dipl.-Ing. Dr." .
 
 <https://d-nb.info/gnd/121046842> a acdh:Person ;
     acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/cflaferl> ;
     acdh:hasTitle "Christopher F. Laferl"@und ;
+    acdh:hasPersonalTitle "Univ. Prof. Dr." ;
     acdh:isMemberOf <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> ;
-    acdh:isMemberOf <https://id.acdh.oeaw.ac.at/universitaet-salzburg> .
+    acdh:isMemberOf <https://id.acdh.oeaw.ac.at/unisalzburg-romanistik> .
 
 <https://id.acdh.oeaw.ac.at/label> a acdh:Person ;
     acdh:hasTitle "Laura Abel"@und ;
@@ -68,6 +71,7 @@
     acdh:hasTitle "University of Innsbruck"@en .
 
 <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte>  a acdh:Organisation ;
+    acdh:hasidentifier <https://d-nb.info/gnd/2016019-7> ;
     acdh:hasTitle "Kommission für Neuere Geschichte | Universität Innsbruck"@de ;
     acdh:hasTitle "Kommission für Neuere Geschichte | Universität Innsbruck"@en ;
     acdh:hasAddressLine1 "Innrain 52" ;
@@ -83,10 +87,10 @@
     acdh:isMemberOf <https://id.acdh.oeaw.ac.at/uniinnsbruck> .
 
 <https://id.acdh.oeaw.ac.at/universitaet-salzburg>  a acdh:Organisation ;
+    acdh:hasIdentifier <https://d-nb.info/gnd/36184-7> ;
     acdh:hasTitle "Paris Lodron Universität Salzburg"@de ;
-    acdh:hasTitle "Paris Lodron Universität Salzburg"@en ;
+    acdh:hasTitle "Paris Lodron University of Salzburg"@en ;
     acdh:hasAddressLine1 "Kapitelgasse 4-6" ;
-    acdh:hasAddressLine1 "c/o Institut für Geschichtswissenschaften und Europäische Ethnologie" ;
     acdh:hasCity "Salzburg"@de ;
     acdh:hasCity "Salzburg"@en ;
     acdh:hasRegion "Salzburg"@de ;
@@ -94,8 +98,57 @@
     acdh:hasCountry "Österreich"@de ;
     acdh:hasCountry "Austria"@en ;
     acdh:hasPostcode "5020" ;
-    acdh:hasUrl "https://www.plus.ac.at" ;
-    acdh:isMemberOf <https://id.acdh.oeaw.ac.at/uniinnsbruck> .
+    acdh:hasUrl "https://www.plus.ac.at" .
+
+<https://id.acdh.oeaw.ac.at/unisalzburg-romanistik>  a acdh:Organisation ;
+    acdh:hasIdentifier <https://d-nb.info/gnd/16013617-9> ;
+    acdh:hasTitle "Fachbereich Romanistik | Paris Lodron Universität Salzburg"@de ;
+    acdh:hasTitle "Department of Romance Studies | Paris Lodron University of Salzburg"@en ;
+    acdh:hasAddressLine1 "Erzabt-Klotz-Straße 1" ;
+    acdh:hasAddressLine2 "Zi. 3.317" ;
+    acdh:hasCity "Salzburg"@de ;
+    acdh:hasCity "Salzburg"@en ;
+    acdh:hasRegion "Salzburg"@de ;
+    acdh:hasRegion "Salzburg"@en ;
+    acdh:hasCountry "Österreich"@de ;
+    acdh:hasCountry "Austria"@en ;
+    acdh:hasPostcode "5020" ;
+    acdh:hasUrl "https://www.plus.ac.at/romanistik" ;
+    acdh:isMemberOf <https://id.acdh.oeaw.ac.at/universitaet-salzburg> .
+
+<https://id.acdh.oeaw.ac.at/oesterreichisches-staatsarchiv>  a acdh:Organisation ;
+    acdh:hasIdentifier <https://d-nb.info/gnd/37748-X> ;
+    acdh:hasTitle "Österreichisches Staatsarchiv"@de ;
+    acdh:hasTitle "Austrian State Archives"@en ;
+    acdh:hasAlternativeTitle "ÖStA"@de ;
+    acdh:hasAlternativeTitle "ÖStA"@en ;
+    acdh:hasAddressLine1 "Nottendorfer Gasse 2" ;
+    acdh:hasCity "Wien"@de ;
+    acdh:hasCity "Vienna"@en ;
+    acdh:hasRegion "Wien"@de ;
+    acdh:hasRegion "Vienna"@en ;
+    acdh:hasCountry "Österreich"@de ;
+    acdh:hasCountry "Austria"@en ;
+    acdh:hasPostcode "1030" ;
+    acdh:hasUrl "https://www.oesta.gv.at" .
+
+<https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv>  a acdh:Organisation ;
+    acdh:hasIdentifier <https://d-nb.info/gnd/1045024-5> ;
+    acdh:hasTitle "Haus-, Hof- und Staatsarchiv"@de ;
+    acdh:hasTitle "Haus-, Hof- und Staatsarchiv"@en ;
+    acdh:hasAlternativeTitle "HHStA"@de ;
+    acdh:hasAlternativeTitle "HHStA"@en ;
+    acdh:hasAddressLine1 "Minoritenplatz 1" ;
+    acdh:hasCity "Wien"@de ;
+    acdh:hasCity "Vienna"@en ;
+    acdh:hasRegion "Wien"@de ;
+    acdh:hasRegion "Vienna"@en ;
+    acdh:hasCountry "Österreich"@de ;
+    acdh:hasCountry "Austria"@en ;
+    acdh:hasPostcode "1010" ;
+    acdh:hasUrl "https://www.oesta.gv.at/ueber-uns/abteilungen/haus-hof-und-staatsarchiv1.html" ;
+    acdh:relation <https://id.acdh.oeaw.ac.at/gtrans/entities/institution/1081> ;
+    acdh:isMemberOf <https://id.acdh.oeaw.ac.at/oesterreichisches-staatsarchiv> .
 
 <https://id.acdh.oeaw.ac.at/pub-wbauer1912> a acdh:Publication ;
     acdh:hasTitle "Die Korrespondenz Ferdinands I. / 1: Familienkorrespondenz bis 1526 / bearb. von Wilhelm Bauer"@de ;
@@ -120,6 +173,24 @@
 		}""" ;
     acdh:isSourceOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/band-001> .
 
+<https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/Ferdinand-Korrespondenz-title-image.jpg>  a  acdh:Resource ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> ;
+    acdh:isTitleImageOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> ;
+    acdh:hasDigitisingAgent <https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv> ;
+    acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/none> ;
+    acdh:hasLicensor <https://id.acdh.oeaw.ac.at/none> ;
+    acdh:hasOwner <https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv> ;
+    acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image> ;
+    acdh:hasTitle "Titelbild zur Sammlung: Die Familienkorrespondenz von Ferdinand I."@de ;
+    acdh:hasDescription "Unterschrift Ferdinands I. aus einem Brief an Maria von Ungarn, Linz, 23. Juli 1538 (Wien, HHStA - Haus-, Hof- und Staatsarchiv, Familienakten 10/1, fol. 3r)"@de ;
+    acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/noc-cr> ;
+    acdh:hasRightsInformation "Das Original befindet sich im Eigentum des Österreichischen Staatsarchivs. Die Verwendung des Digitalisats durch Dritte bedarf einer schriftlichen Bewilligung des ÖStA entsprechend der geltenden Benutzungsordnung."@de ;
+    acdh:hasAccessRestriction <https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public> ;
+    acdh:hasMetadataCreator <https://d-nb.info/gnd/121046842> ;
+    acdh:hasDepositor <https://d-nb.info/gnd/121046842> ;
+    acdh:hasCurator <http://d-nb.info/gnd/1043833846> ;
+    acdh:hasPid "create" .
+
 <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> a acdh:TopCollection ;
     acdh:hasDescription """Familienkorrespondenz Ferdinands I., kodiert in XML/TEI, ergänzt um ein Personen-, Sach- sowie Ortsregister und um Listen des bisher in gedruckter Form edierten Materials (1527-1536) wie auch der erhobenen Briefe 1537-1564. 
 
@@ -132,7 +203,7 @@ Die weiteren Bände werden sukzessive in die Sammlung aufgenommen:
 * Die Korrespondenz Ferdinands I. / 2, 2. Hälfte: Familienkorrespondenz 1529 und 1530 / bearb. von Wilhelm Bauer und Robert Lacroix. Wien: Holzhausen, 1938. 
 * Die Korrespondenz Ferdinands I. / Familienkorrespondenz, Bd. 3, Lfg. 1: 1531 und 1532 / bearb. von Herwig Wolfram u. Christiane Thomas. Wien: Holzhausen, 1973. 
 * Die Korrespondenz Ferdinands I. / Familienkorrespondenz, Bd. 3, Lfg. 2: 1531 und 1532 / bearb. von Herwig Wolfram u. Christiane Thomas. Wien: Holzhausen, 1977. 
-* Die Korrespondenz Ferdinands I. / Familienkorrespondenz, Bd. 3, Lfg. 3 und Nachtrag: 1531 und 1532 / bearb. von Herwig Wolfram u. Christiane Thomas. Wien: Holzhausen, 1984. 
+* Die Korrespondenz Ferdinands I. / Familienkorrespondenz, Bd. 3, Lfg. 3 und Nachtrag: 1531 und 1532 / bearb. von Herwig Wolfram u. Christiane Thomas unter Mithilfe von Gernot Heiß. Wien: Holzhausen, 1984. 
 * Die Korrespondenz Ferdinands I. / 4: Familienkorrespondenz 1533 und 1534 / bearb. von Christopher F. Laferl u. Christina Lutter. Wien: Böhlau, 2000. 
 * Die Korrespondenz Ferdinands I. / 5: Familienkorrespondenz 1535 und 1536 / bearb. von Bernadette Hofinger, Harald Kufner, Christopher F. Laferl, Judith Moser-Kroiss und Nicola Tschugmell. Wien: Böhlau, 2015.
 
@@ -160,7 +231,7 @@ Die Personen-, Sach- sowie Ortsregister werden mit jedem hinzukommendem Band ent
     acdh:hasUrl "https://ferdinand-korrespondenz.acdh.oeaw.ac.at" .
 
 <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/indices> a acdh:Collection ;
-    acdh:hasDescription "XML/TEI kodierte versionierte Orts-, Sach- und Personenregister, die mit jedem neu hinzukommendem Band entsprechend erweitert werden."@de ;
+    acdh:hasDescription "XML/TEI kodierte versionierte Orts-, Sach- und Personenregister, die mit jedem neu hinzukommenden Band entsprechend erweitert werden."@de ;
     acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
     acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/fra> ;
     acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/spa> ;
