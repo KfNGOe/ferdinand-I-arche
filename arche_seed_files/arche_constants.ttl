@@ -257,6 +257,7 @@ Die Personen-, Sach- sowie Ortsregister werden mit jedem hinzukommenden Band ent
     acdh:isSourceOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/register_index.xml> ;
     acdh:isSourceOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/register_person.xml> ;
     acdh:isSourceOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/register_place.xml> ;
+    acdh:hasSchema <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/basisformat_all_ferdinand.xml> ;
     acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> .
 
 <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/register_index.xml> a acdh:Resource ;
