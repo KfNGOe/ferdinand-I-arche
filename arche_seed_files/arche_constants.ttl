@@ -181,7 +181,7 @@
     acdh:hasLicensor <https://id.acdh.oeaw.ac.at/none> ;
     acdh:hasOwner <https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv> ;
     acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image> ;
-    acdh:hasTitle "Titelbild zur Sammlung: Die Familienkorrespondenz von Ferdinand I."@de ;
+    acdh:hasTitle "Titelbild zur Sammlung: Die Familienkorrespondenz Ferdinands I."@de ;
     acdh:hasDescription "Unterschrift Ferdinands I. aus einem Brief an Maria von Ungarn, Linz, 23. Juli 1538 (Wien, HHStA - Haus-, Hof- und Staatsarchiv, Familienakten 10/1, fol. 3r)"@de ;
     acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/noc-cr> ;
     acdh:hasRightsInformation "Das Original befindet sich im Eigentum des Österreichischen Staatsarchivs. Die Verwendung des Digitalisats durch Dritte bedarf einer schriftlichen Bewilligung des ÖStA entsprechend der geltenden Benutzungsordnung."@de ;
