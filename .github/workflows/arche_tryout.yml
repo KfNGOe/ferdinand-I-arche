@@ -38,14 +38,14 @@ jobs:
     - name: refresh AV database
       run: |
         python3 -m pip install --user cvdupdate && cvd update
-    - name: run repo-file-checker
+    - name: run create fc_out
       run: rm -rf ${PWD}/fc_out && mkdir ${PWD}/fc_out
-            docker run \
-              --rm \
-              -v ${PWD}/fc_out:/reports \
-              -v ${PWD}/to_ingest:/data \
-              -v ~/.cvdupdate/database/:/var/lib/clamav \
-              acdhch/arche-filechecker --overwrite --skipWarnings
+    - name: run filechecker
+      run: docker run \
+           --rm \
+           -v ${PWD}/fc_out:/reports \
+           -v ${PWD}/to_ingest:/data \
+           -v ~/.cvdupdate/database/:/var/lib/clamav acdhch/arche-filechecker --overwrite --skipWarnings
     - uses: actions/upload-artifact@v4
       with:
         name: filechecker-report
