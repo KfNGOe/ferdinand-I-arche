@@ -14,36 +14,38 @@ jobs:
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: "3.10"
-        cache: 'pip' # caching pip dependencies
-    - name: Install Dependencies
-      run: pip install -r requirements.txt
-    - name: Fetch Data
-      run: |
-        ./fetch_data.sh
-    - name: Make RDF
-      run: python make_arche_rdf.py
-    - name: add handle-ids
-      run: python mint_handles.py
-    - name: Fetch WF-URL
-      run: echo "RUN_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_ENV
-    - name: cache AV database
-      id: avdb
-      uses: actions/cache@v4
-      with:
-        path: ~/.cvdupdate
-        key: constant
-    - name: refresh AV database
-      run: |
-        python3 -m pip install --user cvdupdate && cvd update
-    - name: run repo-file-checker
-      run: ./arche__filechecker.sh
-    - uses: actions/upload-artifact@v4
-      with:
-        name: filechecker-report
-        path: ./to_ingest
-        if-no-files-found: error
-        overwrite: true
+    - name:
+      run: ./test.sh
+    # - uses: actions/setup-python@v5
+    #   with:
+    #     python-version: "3.10"
+    #     cache: 'pip' # caching pip dependencies
+    # - name: Install Dependencies
+    #   run: pip install -r requirements.txt
+    # - name: Fetch Data
+    #   run: |
+    #     ./fetch_data.sh
+    # - name: Make RDF
+    #   run: python make_arche_rdf.py
+    # - name: add handle-ids
+    #   run: python mint_handles.py
+    # - name: Fetch WF-URL
+    #   run: echo "RUN_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_ENV
+    # - name: cache AV database
+    #   id: avdb
+    #   uses: actions/cache@v4
+    #   with:
+    #     path: ~/.cvdupdate
+    #     key: constant
+    # - name: refresh AV database
+    #   run: |
+    #     python3 -m pip install --user cvdupdate && cvd update
+    # - name: run repo-file-checker
+    #   run: ./arche__filechecker.sh
+    # - uses: actions/upload-artifact@v4
+    #   with:
+    #     name: filechecker-report
+    #     path: ./to_ingest
+    #     if-no-files-found: error
+    #     overwrite: true
         
