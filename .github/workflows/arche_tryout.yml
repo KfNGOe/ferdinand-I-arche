@@ -1,0 +1,57 @@
+name: ARCHE-Ingest
+
+on:
+  workflow_dispatch
+
+jobs:
+  build_pages:
+    name: Ingest Data into ARCHE
+    runs-on: ubuntu-latest
+    env:
+      REDMINE_ID: 21016
+      HANDLE_PASSWORD: ${{secrets.HANDLE_PASSWORD}}
+      HANDLE_USERNAME: ${{secrets.HANDLE_USERNAME}}
+    steps:
+    - name: Perform Checkout
+      uses: actions/checkout@v4
+    - name:
+      run: ./test.sh
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+        cache: 'pip'
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+    - name: Fetch Data
+      run: |
+        ./fetch_data.sh
+    - name: Make RDF
+      run: python make_arche_rdf.py
+    - name: add handle-ids
+      run: python mint_handles.py
+    - name: Fetch WF-URL
+      run: echo "RUN_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_ENV
+    - name: cache AV database
+      id: avdb
+      uses: actions/cache@v4
+      with:
+        path: ~/.cvdupdate
+        key: constant
+    - name: refresh AV database
+      run: |
+        python3 -m pip install --user cvdupdate && cvd update
+    - name: run repo-file-checker
+      run: rm -rf ${PWD}/fc_out && mkdir ${PWD}/fc_out
+            docker run \
+              --rm \
+              -v ${PWD}/fc_out:/reports \
+              -v ${PWD}/to_ingest:/data \
+              -v ~/.cvdupdate/database/:/var/lib/clamav \
+              acdhch/arche-filechecker --overwrite --skipWarnings
+    - uses: actions/upload-artifact@v4
+      with:
+        name: filechecker-report
+        path: ./fc_out
+        if-no-files-found: error
+        overwrite: true
+        
