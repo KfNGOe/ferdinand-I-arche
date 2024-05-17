@@ -2,7 +2,8 @@
 
 # python3 -m pip install --user cvdupdate && cvd update
 
-rm -rf fc_out && mkdir fc_out
+rm -rf ${PWD}/fc_out && mkdir ${PWD}/fc_out
+ls
 docker run \
   --rm \
   -v ${PWD}/fc_out:/reports \
