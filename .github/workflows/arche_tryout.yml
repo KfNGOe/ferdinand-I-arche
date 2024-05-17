@@ -1,4 +1,4 @@
-name: ARCHE-Ingest
+name: ARCHE-Tryout
 
 on:
   workflow_dispatch
