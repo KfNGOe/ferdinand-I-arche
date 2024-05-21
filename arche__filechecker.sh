@@ -1,6 +1,6 @@
 #/bin/bash
 
-# python3 -m pip install --user cvdupdate && cvd update
+python3 -m pip install --user cvdupdate && cvd update
 
 rm -rf ${PWD}/fc_out && mkdir ${PWD}/fc_out
 docker run \
