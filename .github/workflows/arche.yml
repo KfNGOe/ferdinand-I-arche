@@ -12,8 +12,8 @@ jobs:
       HANDLE_PASSWORD: ${{secrets.HANDLE_PASSWORD}}
       HANDLE_USERNAME: ${{secrets.HANDLE_USERNAME}}
       ARCHE_USER: ${{secrets.ARCHE_USER}}
-      ARCHE_PW: ${{ARCHE_PW}}
-      ARCHE: https://arche-dev.acdh-dev.oeaw.ac.at
+      ARCHE_PASSWORD: ${{ARCHE_PASSWORD}}
+      ARCHE: https://arche-dev.acdh-dev.oeaw.ac.at/api
 
     steps:
     - name: Perform Checkout
@@ -44,7 +44,9 @@ jobs:
     - name: refresh AV database
       run: |
         python3 -m pip install --user cvdupdate && cvd update
-    - name: run repo-file-checker
+    - name: run virus_scan
+      run: ./arche__viruscheck.sh
+    - name: run filechecker
       run: ./arche__filechecker.sh
     - uses: actions/upload-artifact@v4
       with:
@@ -52,4 +54,7 @@ jobs:
         path: ./fc_out
         if-no-files-found: error
         overwrite: true
+    - name: run binary_import
+      run: ./arche__ingest_binaries.sh
+    
         
