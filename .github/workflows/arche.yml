@@ -12,7 +12,7 @@ jobs:
       HANDLE_PASSWORD: ${{secrets.HANDLE_PASSWORD}}
       HANDLE_USERNAME: ${{secrets.HANDLE_USERNAME}}
       ARCHE_USER: ${{secrets.ARCHE_USER}}
-      ARCHE_PASSWORD: ${{ARCHE_PASSWORD}}
+      ARCHE_PASSWORD: ${{secrets.ARCHE_PASSWORD}}
       ARCHE: https://arche-dev.acdh-dev.oeaw.ac.at/api
 
     steps:
