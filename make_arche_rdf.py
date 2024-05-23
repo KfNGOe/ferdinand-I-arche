@@ -146,7 +146,7 @@ for x in doc.any_xpath(
 g.parse("arche_seed_files/other_things.ttl")
 g.serialize("arche.ttl")
 
-shutil.move(
+shutil.copy(
     "data/basisformat_all_ferdinand.xml",
     os.path.join(ingest_dir, "basisformat_all_ferdinand.xml"),
 )
