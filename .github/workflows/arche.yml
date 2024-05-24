@@ -13,7 +13,7 @@ jobs:
       HANDLE_USERNAME: ${{secrets.HANDLE_USERNAME}}
       ARCHE_USER: ${{secrets.ARCHE_USER}}
       ARCHE_PASSWORD: ${{secrets.ARCHE_PASSWORD}}
-      ARCHE: https://arche-dev.acdh-dev.oeaw.ac.at/api
+      ARCHE: https://arche-curation.acdh-dev.oeaw.ac.at/api
 
     steps:
     - name: Perform Checkout
@@ -33,6 +33,12 @@ jobs:
       run: python make_arche_rdf.py
     - name: add handle-ids
       run: python mint_handles.py
+    - uses: actions/upload-artifact@v4
+      with:
+        name: arche.ttl
+        path: ./arche.ttl
+        if-no-files-found: error
+        overwrite: true
     - name: Fetch WF-URL
       run: echo "RUN_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_ENV
     - name: cache AV database
@@ -54,6 +60,8 @@ jobs:
         path: ./fc_out
         if-no-files-found: error
         overwrite: true
+    - name: run metadata import
+      run: ./arche__ingest_md.sh
     - name: run binary_import
       run: ./arche__ingest_binaries.sh
     
