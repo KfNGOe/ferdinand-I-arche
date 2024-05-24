@@ -132,6 +132,10 @@
     acdh:hasPostcode "1030" ;
     acdh:hasUrl "https://www.oesta.gv.at" .
 
+###Already on Apollo, but not on Minerva: Predecessor institution with the same title, which cannot be understood as the same institution as today, therefore new entry & reference to old one
+<https://id.acdh.oeaw.ac.at/gtrans/entities/institution/1081>  a acdh:Organisation ;
+acdh:hasTitle "Haus-, Hof- und Staatsarchiv"@de .
+
 <https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv>  a acdh:Organisation ;
     acdh:hasIdentifier <https://d-nb.info/gnd/1045024-5> ;
     acdh:hasTitle "Haus-, Hof- und Staatsarchiv"@de ;
