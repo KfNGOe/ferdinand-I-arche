@@ -136,8 +136,8 @@
 # <https://id.acdh.oeaw.ac.at/gtrans/entities/institution/1081>  a acdh:Organisation ;
 #     acdh:hasTitle "Haus-, Hof- und Staatsarchiv"@de .
 
-<https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv>  a acdh:Organisation ;
-    acdh:hasIdentifier <https://d-nb.info/gnd/1045024-5> ;
+  <https://d-nb.info/gnd/1045024-5> a acdh:Organisation ;
+    acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv>;
     acdh:hasTitle "Haus-, Hof- und Staatsarchiv"@de ;
     acdh:hasTitle "Haus-, Hof- und Staatsarchiv"@en ;
     acdh:hasAlternativeTitle "HHStA"@de ;
