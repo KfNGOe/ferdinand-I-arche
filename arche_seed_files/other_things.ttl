@@ -15,3 +15,20 @@
     acdh:hasMetadataCreator <https://d-nb.info/gnd/13295639X> ;
     acdh:hasOwner <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> ;
     acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/uniinnsbruck> .
+
+<https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/Ferdinand-Korrespondenz-title-image.jpg>  a  acdh:Resource ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> ;
+    acdh:isTitleImageOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> ;
+    acdh:hasDigitisingAgent <https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv> ;
+    acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/none> ;
+    acdh:hasLicensor <https://id.acdh.oeaw.ac.at/none> ;
+    acdh:hasOwner <https://id.acdh.oeaw.ac.at/oesta-haushofundstaatsarchiv> ;
+    acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image> ;
+    acdh:hasTitle "Titelbild zur Sammlung: Die Familienkorrespondenz Ferdinands I."@de ;
+    acdh:hasDescription "Unterschrift Ferdinands I. aus einem Brief an Maria von Ungarn, Linz, 23. Juli 1538 (Wien, HHStA - Haus-, Hof- und Staatsarchiv, Familienakten 10/1, fol. 3r)"@de ;
+    acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/noc-cr> ;
+    acdh:hasRightsInformation "Das Original befindet sich im Eigentum des Österreichischen Staatsarchivs. Die Verwendung des Digitalisats durch Dritte bedarf einer schriftlichen Bewilligung des ÖStA entsprechend der geltenden Benutzungsordnung."@de ;
+    acdh:hasAccessRestriction <https://vocabs.acdh.oeaw.ac.at/archeaccessrestrictions/public> ;
+    acdh:hasMetadataCreator <https://d-nb.info/gnd/121046842> ;
+    acdh:hasDepositor <https://d-nb.info/gnd/121046842> ;
+    acdh:hasCurator <http://d-nb.info/gnd/1043833846> .
