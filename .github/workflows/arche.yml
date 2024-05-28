@@ -14,12 +14,11 @@ jobs:
       ARCHE_USER: ${{secrets.ARCHE_USER}}
       ARCHE_PASSWORD: ${{secrets.ARCHE_PASSWORD}}
       ARCHE: https://arche-curation.acdh-dev.oeaw.ac.at/api
+      TOPCOLID: "https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz"
 
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v4
-    - name:
-      run: ./test.sh
     - uses: actions/setup-python@v5
       with:
         python-version: "3.10"
