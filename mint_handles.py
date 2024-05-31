@@ -38,8 +38,8 @@ with open(HANDLE_CACHE, "w") as f:
 with open(HANDLE_CACHE, "r") as file:
     data = json.load(file)
 
-g = Graph().parse("arche.ttl")
+g = Graph().parse("./to_ingest/arche.ttl")
 for key, value in data.items():
     sub = URIRef(key)
     g.add((sub, arche_ns["hasPid"], Literal(value)))
-g.serialize("arche.ttl")
+g.serialize("./to_ingest/arche.ttl")
