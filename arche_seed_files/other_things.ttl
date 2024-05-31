@@ -16,7 +16,7 @@
     acdh:hasOwner <https://id.acdh.oeaw.ac.at/uniinnsbruck-neuere-geschichte> ;
     acdh:hasRightsHolder <https://id.acdh.oeaw.ac.at/uniinnsbruck> .
 
-<https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/Ferdinand-Korrespondenz-title-image.jpg>  a  acdh:Resource ;
+<https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz/title-image.jpg>  a  acdh:Resource ;
     acdh:isPartOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> ;
     acdh:isTitleImageOf <https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz> ;
     acdh:hasDigitisingAgent <https://d-nb.info/gnd/1045024-5> ;

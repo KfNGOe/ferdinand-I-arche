@@ -150,3 +150,8 @@ shutil.copy(
     "data/basisformat_all_ferdinand.xml",
     os.path.join(ingest_dir, "basisformat_all_ferdinand.xml"),
 )
+
+shutil.copy(
+    "title-image.jpg",
+    os.path.join(ingest_dir, "title-image.jpg"),
+)
