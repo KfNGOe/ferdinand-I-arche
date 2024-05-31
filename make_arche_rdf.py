@@ -144,7 +144,7 @@ for x in doc.any_xpath(
                 doc_subj = URIRef(f"{TOP_COL_URI}/{doc_id}")
                 g.add((doc_subj, ACDH["hasSpatialCoverage"], subj))
 g.parse("arche_seed_files/other_things.ttl")
-g.serialize("arche.ttl")
+g.serialize("to_ingest/arche.ttl")
 
 shutil.copy(
     "data/basisformat_all_ferdinand.xml",
