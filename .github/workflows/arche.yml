@@ -13,7 +13,7 @@ jobs:
       HANDLE_USERNAME: ${{secrets.HANDLE_USERNAME}}
       ARCHE_USER: ${{secrets.ARCHE_USER}}
       ARCHE_PASSWORD: ${{secrets.ARCHE_PASSWORD}}
-      ARCHE: https://arche-curation.acdh-dev.oeaw.ac.at/api
+      ARCHE: https://arche.acdh.oeaw.ac.at/api
       TOPCOLID: "https://id.acdh.oeaw.ac.at/ferdinand-korrespondenz"
 
     steps:
